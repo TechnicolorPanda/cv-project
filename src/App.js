@@ -7,32 +7,31 @@ class App extends Component {
     super()
 
     this.state = {
+      generalInfo: '',
       fullName: '',
-      email: '',
+      // email: '',
       // phone: '',
       // address: '',
     }
   }
 
   handleChange = (event) => {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    console.log(name);
-    console.log(value);
-
     this.setState({
-      [name]: value
+      [event.target.name]: event.target.value,
     });
   };
 
   onSubmitItems = (event) => {
+    console.log('submit');
+    const { fullName, email } = this.state
     event.preventDefault();
-    this.setState({
-      fullName: this.state.fullName,
-      email: this.state.email,
-    });
+
+    console.log(fullName);
+    console.log(email);
+
+    // this.setState({
+    // generalInfo: this.state,
+    // });
   }
 
   render() {
@@ -80,7 +79,7 @@ class App extends Component {
             Submit
           </button>
         </form>
-        <Overview fullName = 'fullName' email = 'email'/>
+        <Overview fullName = { fullName }/>
       </div>
     );
   };

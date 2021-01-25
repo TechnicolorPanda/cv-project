@@ -1,13 +1,13 @@
 import React from 'react';
 
 const Overview = (props) => {
-  const { fullName } = props.fullName;
-  const { email } = props.email;
+  const { generalInfo } = props.generalInfo;
+  //const { email } = props.email;
 
   return (
     <ul>
-        {fullName}
-        {email}
+        {/* {fullName} */}
+      {/* {email} */}
     </ul>
     );
 };
