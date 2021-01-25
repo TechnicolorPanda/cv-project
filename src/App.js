@@ -1,37 +1,40 @@
 import React, { Component } from 'react';
-import Overview from './components/Overview';
+import GeneralInfo from './components/GeneralInfo';
 import './styles/App.css';
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
-      generalInfo: '',
+      generalInfo: [],
       fullName: '',
-      // email: '',
-      // phone: '',
-      // address: '',
+      email: '',
+      phone: '',
+      address: '',
     }
+    this.handleChange = this.handleChange.bind(this) 
+    this.onSubmitItems = this.onSubmitItems.bind(this) 
   }
 
   handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
     this.setState({
-      [event.target.name]: event.target.value,
+      [name]:value
     });
-  };
+  }
 
   onSubmitItems = (event) => {
     console.log('submit');
-    const { fullName, email } = this.state
     event.preventDefault();
 
-    console.log(fullName);
-    console.log(email);
-
-    // this.setState({
-    // generalInfo: this.state,
-    // });
+    this.setState({
+      fullName: this.state.fullName,
+      email: this.state.email,
+      phone: this.state.phone,
+      address: this.state.address,
+    })
   }
 
   render() {
@@ -59,27 +62,34 @@ class App extends Component {
             id = 'emailInput' />
           <br></br>
 
-          {/* <label htmlFor = 'phoneInput'>Phone Number </label>
+          <label htmlFor = 'phoneInput'>Phone Number </label>
           <input 
             onChange = {this.handleChange}
-            value = {generalInfo.phone}
+            value = {this.state.phone}
+            name = 'phone'
             type = 'number' 
             id = 'phoneInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'addressInput'>Address </label>
+          <label htmlFor = 'addressInput'>Address </label>
           <input 
             onChange = {this.handleChange}
-            value = {generalInfo.address}
+            value = {this.state.address}
+            name = 'address'
             type = 'text' 
             id = 'addressInput' />
-          <br></br> */}
+          <br></br>
 
           <button type = 'submit'>
             Submit
           </button>
         </form>
-        <Overview fullName = { fullName }/>
+        <GeneralInfo
+          fullName = {this.state.fullName} 
+          email = {this.state.email}
+          phone = {this.state.phone}
+          address = {this.state.address}
+        />
       </div>
     );
   };
