@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Overview = (props) => {
+const GeneralInfo = (props) => {
   console.log('overview');
 
   return (
@@ -13,4 +13,4 @@ const Overview = (props) => {
     );
 };
 
-export default Overview;
+export default GeneralInfo;
