@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GeneralForm from './components/GeneralForm';
-import EducationForm from './components/EducationForm';
-import EmploymentForm from './components/EmploymentForm';
+// import EducationForm from './components/EducationForm';
+// import EmploymentForm from './components/EmploymentForm';
 import './styles/App.css';
 
 class App extends Component {
@@ -13,12 +13,12 @@ class App extends Component {
         <div>
           <GeneralForm/>
         </div>
-        <div>
+        {/* <div>
           <EducationForm/>
         </div>
         <div>
           <EmploymentForm/>
-        </div>
+        </div> */}
       </div>
     )
   };

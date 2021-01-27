@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react';
 import React, { Component } from 'react';
 import GeneralInfo from './GeneralInfo';
 
@@ -25,6 +26,7 @@ class GeneralForm extends Component {
 
   onSubmitItems = (event) => {
     event.preventDefault();
+    console.log('submit');
 
     this.setState({
       fullName: this.state.fullName,
@@ -32,13 +34,28 @@ class GeneralForm extends Component {
       phone: this.state.phone,
       address: this.state.address,
     })
-  }
+
+    console.log(this.state.fullName);
+
+    return (
+      <div>
+        <GeneralInfo
+          fullName = {this.state.fullName} 
+          email = {this.state.email}
+          phone = {this.state.phone}
+          address = {this.state.address}
+        />
+      </div>
+    );
+  };
 
   render() {
 
     return (
       <div>
-          <form onSubmit = {this.onSubmitItems}>
+          <form 
+            onSubmit = {this.onSubmitItems}
+            >
 
           <label htmlFor = 'nameInput'>Name </label>
           <input 
@@ -76,17 +93,21 @@ class GeneralForm extends Component {
             id = 'addressInput' />
           <br></br>
 
-          <button type = 'submit'>
-            Submit
-          </button>
+          <button 
+            type = 'submit' 
+            value = 'Submit'
+          >Submit</button>
+
+
         </form>
+{/*         TODO: go to general info only after submit button */}
         
-        <GeneralInfo
+        {/* <GeneralInfo
           fullName = {this.state.fullName} 
           email = {this.state.email}
           phone = {this.state.phone}
           address = {this.state.address}
-        />
+        /> */}
       </div>
     );
   };
