@@ -11,6 +11,7 @@ class GeneralForm extends Component {
       email: '',
       phone: '',
       address: '',
+      isClicked: false,
     }
     this.handleChange = this.handleChange.bind(this) 
     this.onSubmitItems = this.onSubmitItems.bind(this) 
@@ -26,27 +27,7 @@ class GeneralForm extends Component {
 
   onSubmitItems = (event) => {
     event.preventDefault();
-    console.log('submit');
-
-    this.setState({
-      fullName: this.state.fullName,
-      email: this.state.email,
-      phone: this.state.phone,
-      address: this.state.address,
-    })
-
-    console.log(this.state.fullName);
-
-    return (
-      <div>
-        <GeneralInfo
-          fullName = {this.state.fullName} 
-          email = {this.state.email}
-          phone = {this.state.phone}
-          address = {this.state.address}
-        />
-      </div>
-    );
+    this.setState(state => ({ isClicked: !state.isShow }));  
   };
 
   render() {
@@ -100,14 +81,14 @@ class GeneralForm extends Component {
 
 
         </form>
-{/*         TODO: go to general info only after submit button */}
         
-        {/* <GeneralInfo
+        <GeneralInfo
           fullName = {this.state.fullName} 
           email = {this.state.email}
           phone = {this.state.phone}
           address = {this.state.address}
-        /> */}
+          isClicked = {this.state.isClicked}
+        />
       </div>
     );
   };
