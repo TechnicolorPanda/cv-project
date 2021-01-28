@@ -10,6 +10,7 @@ class EmploymentForm extends Component {
       positionTitle: '',
       responsibilities: '',
       dates: '',
+      isClicked: false,
     }
     this.handleChange = this.handleChange.bind(this) 
     this.onSubmitItems = this.onSubmitItems.bind(this) 
@@ -25,13 +26,7 @@ class EmploymentForm extends Component {
 
   onSubmitItems = (event) => {
     event.preventDefault();
-
-    this.setState({
-      company: this.state.company,
-      positionTitle: this.state.positionTitle,
-      responsibilities: this.state.responsibilities,
-      dates: this.state.dates,
-    })
+    this.setState(state => ({ isClicked: !state.isShow })); 
   }
 
   render() {
@@ -86,6 +81,7 @@ class EmploymentForm extends Component {
           positionTitle = {this.state.positionTitle}
           responsibilities = {this.state.responsibilities}
           dates = {this.state.dates}
+          isClicked = {this.state.isClicked}
         />
       </div>
     );

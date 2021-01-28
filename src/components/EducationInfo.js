@@ -1,13 +1,24 @@
 import React from 'react';
+import EmploymentForm from './EmploymentForm';
 
 const EducationInfo = (props) => {
 
+  const isClicked = props.isClicked;
+
   return (
-    <ul>
-      <li>{props.school}</li>
-      <li>{props.degree}</li>
-      <li>{props.gradYear}</li>
-    </ul>
+    <div>
+      {(isClicked === true)
+      ?  <div>
+        <ul>
+          <li>{props.school}</li>
+          <li>{props.degree}</li>
+          <li>{props.gradYear}</li>
+        </ul>
+        <EmploymentForm/>
+      </div>
+      : null 
+      }
+    </div>
     );
 };
 

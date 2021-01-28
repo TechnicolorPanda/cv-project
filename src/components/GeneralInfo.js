@@ -5,10 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const GeneralInfo = (props) => {
-  console.log('overview');
   const editIcon = <FontAwesomeIcon icon = {faEdit} />
   const isClicked = props.isClicked;
-  console.log(isClicked);
 
   return (
     <div>

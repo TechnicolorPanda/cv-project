@@ -9,6 +9,7 @@ class GeneralForm extends Component {
       school: '',
       degree: '',
       gradYear: '',
+      isClicked: false,
     }
     this.handleChange = this.handleChange.bind(this) 
     this.onSubmitItems = this.onSubmitItems.bind(this) 
@@ -25,12 +26,7 @@ class GeneralForm extends Component {
   onSubmitItems = (event) => {
     console.log('submit');
     event.preventDefault();
-
-    this.setState({
-      school: this.state.school,
-      degree: this.state.degree,
-      gradYear: this.state.gradYear,
-    })
+    this.setState(state => ({ isClicked: !state.isShow }))
   }
 
   render() {
@@ -75,6 +71,7 @@ class GeneralForm extends Component {
           school = {this.state.school} 
           degree = {this.state.degree}
           gradYear = {this.state.gradYear}
+          isClicked = {this.state.isClicked}
         />
       </div>
     );
