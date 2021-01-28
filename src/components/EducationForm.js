@@ -26,14 +26,15 @@ class GeneralForm extends Component {
   onSubmitItems = (event) => {
     console.log('submit');
     event.preventDefault();
-    this.setState(state => ({ isClicked: !state.isShow }))
+    this.setState(state => ({ isClicked: !state.isClicked }))
   }
 
   render() {
 
     return (
       <div>
-          <form onSubmit = {this.onSubmitItems}>
+        { (this.state.isClicked === false)
+        ? <form onSubmit = {this.onSubmitItems}>
 
           <label htmlFor = 'schoolInput'>School </label>
           <input 
@@ -66,6 +67,8 @@ class GeneralForm extends Component {
             Submit
           </button>
         </form>
+        : null
+        }
         
         <EducationInfo
           school = {this.state.school} 

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const EmploymentInfo = (props) => {
-  console.log('overview');
   const isClicked = props.isClicked;
 
   return (

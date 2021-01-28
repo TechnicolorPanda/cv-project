@@ -9,12 +9,12 @@ const EducationInfo = (props) => {
     <div>
       {(isClicked === true)
       ?  <div>
+        <EmploymentForm/>
         <ul>
           <li>{props.school}</li>
           <li>{props.degree}</li>
           <li>{props.gradYear}</li>
         </ul>
-        <EmploymentForm/>
       </div>
       : null 
       }
