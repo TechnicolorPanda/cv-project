@@ -10,7 +10,7 @@ class GeneralForm extends Component {
       email: '',
       phone: '',
       address: '',
-      isClicked: false,
+      showGeneralInfo: false,
     }
     this.handleChange = this.handleChange.bind(this) 
     this.onSubmitItems = this.onSubmitItems.bind(this) 
@@ -26,13 +26,13 @@ class GeneralForm extends Component {
 
   onSubmitItems = (event) => {
     event.preventDefault();
-    this.setState(state => ({ isClicked: !state.isClicked }));  
+    this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));  
   };
 
   render() {
     return (
       <div>
-        { (this.state.isClicked === false)
+        { (this.state.showGeneralInfo === false)
         ? <form id = 'generalInput' onSubmit = {this.onSubmitItems}>
 
           <label htmlFor = 'nameInput'>Name </label>
@@ -76,18 +76,15 @@ class GeneralForm extends Component {
             value = 'Submit'
           >Submit</button>
 
-
         </form>
-        : null 
-        }
-        
-        <GeneralInfo
+
+        : <GeneralInfo
           fullName = {this.state.fullName} 
           email = {this.state.email}
           phone = {this.state.phone}
           address = {this.state.address}
-          isClicked = {this.state.isClicked}
         />
+    }
       </div>
     );
   };

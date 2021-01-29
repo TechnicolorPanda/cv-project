@@ -1,25 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import EmploymentForm from './EmploymentForm';
+import EducationForm from './EducationForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
-const EducationInfo = (props) => {
+class EducationInfo extends Component {
 
-  const isClicked = props.isClicked;
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      showEducationInfo: true,
+    }
+    this.onEditItem = this.onEditItem.bind(this) 
+  }
+
+  onEditItem = (event) => {
+    event.preventDefault();
+    this.setState(state => ({ showEducationInfo: !state.showEducationInfo }));
+  }
+
+  render() {
+
+    const editIcon = <FontAwesomeIcon icon = {faEdit} />
 
   return (
     <div>
-      {(isClicked === true)
+      {(this.state.showEducationInfo === true)
       ?  <div>
         <EmploymentForm/>
         <ul>
-          <li>{props.school}</li>
-          <li>{props.degree}</li>
-          <li>{props.gradYear}</li>
+          <li>{this.props.school}</li>
+          <li>{this.props.degree}</li>
+          <li>{this.props.gradYear}</li>
+          <span></span>
+          <form onClick = {this.onEditItem}>
+            <button type = 'submit'>{editIcon}</button>
+          </form>
         </ul>
       </div>
-      : null 
+      : <div>
+        <EducationForm/>
+      </div>
       }
     </div>
     );
-};
+  };
+}
 
 export default EducationInfo;

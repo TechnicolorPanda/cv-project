@@ -1,22 +1,33 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 import EducationForm from './EducationForm';
+import GeneralForm from './GeneralForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Component } from 'react';
 
-// const GeneralInfo = (props) => {
-
 class GeneralInfo extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      showGeneralInfo: true,
+    }
+    this.onEditItem = this.onEditItem.bind(this) 
+  }
+
+  onEditItem = (event) => {
+    event.preventDefault();
+    this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
+  }
 
   render() {
 
     const editIcon = <FontAwesomeIcon icon = {faEdit} />
-    const isClicked = this.props.isClicked;
 
     return (
       <div>
-      { (isClicked === true)
+      { (this.state.showGeneralInfo === true)
         ? <div>
           <EducationForm/>
           <ul>
@@ -25,11 +36,15 @@ class GeneralInfo extends Component {
             <li>{this.props.phone}</li>
             <li>{this.props.address}</li>
             <span></span>
-            <li>{editIcon}</li>
+            <form onClick = {this.onEditItem}>
+              <button type = 'submit'>{editIcon}</button>
+            </form>
           </ul>
         </div>
-          : null
-          }
+        : <div>
+          <GeneralForm/>
+        </div>
+      }
       </div>
     );
   }

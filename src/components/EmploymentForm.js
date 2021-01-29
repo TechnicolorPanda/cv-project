@@ -76,17 +76,14 @@ class EmploymentForm extends Component {
             Submit
           </button>
         </form>
-        : null
-      }
-        
-        <EmploymentInfo
+        : <EmploymentInfo
           company = {this.state.company} 
           positionTitle = {this.state.positionTitle}
           responsibilities = {this.state.responsibilities}
           dates = {this.state.dates}
-          isClicked = {this.state.isClicked}
         />
-      </div>
+    }
+      </div> 
     );
   };
 }

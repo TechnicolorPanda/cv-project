@@ -67,15 +67,12 @@ class GeneralForm extends Component {
             Submit
           </button>
         </form>
-        : null
-        }
-        
-        <EducationInfo
+        : <EducationInfo
           school = {this.state.school} 
           degree = {this.state.degree}
           gradYear = {this.state.gradYear}
-          isClicked = {this.state.isClicked}
         />
+    }
       </div>
     );
   };
