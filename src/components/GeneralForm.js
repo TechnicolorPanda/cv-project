@@ -4,7 +4,7 @@ import GeneralInfo from './GeneralInfo';
 class GeneralForm extends Component {
   constructor(props) {
     super(props)
-
+    
     this.state = {
       fullName: '',
       email: '',
@@ -83,6 +83,7 @@ class GeneralForm extends Component {
           email = {this.state.email}
           phone = {this.state.phone}
           address = {this.state.address}
+          showGeneralInfo = {this.state.showGeneralInfo}
         />
     }
       </div>

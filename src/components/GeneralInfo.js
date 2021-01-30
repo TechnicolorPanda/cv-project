@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import EducationForm from './EducationForm';
 import GeneralForm from './GeneralForm';
+import CurriculumVitae from './CurriculumVitae';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { Component } from 'react';
+import '../styles/GeneralInfo.css';
 
 class GeneralInfo extends Component {
 
@@ -18,7 +19,7 @@ class GeneralInfo extends Component {
 
   onEditItem = (event) => {
     event.preventDefault();
-    this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
+    this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo })); 
   }
 
   render() {
@@ -30,16 +31,22 @@ class GeneralInfo extends Component {
       { (this.state.showGeneralInfo === true)
         ? <div>
           <EducationForm/>
-          <ul>
-            <li>{this.props.fullName}</li>
-            <li>{this.props.email}</li>
-            <li>{this.props.phone}</li>
+          {/* <ul> */}
+            <CurriculumVitae
+                        fullName = {this.state.fullName} 
+                        email = {this.props.email}
+                        phone = {this.props.phone}
+                        address = {this.props.address}
+                        showGeneralInfo = {this.props.showGeneralInfo}/>
+            {/* <h2>{this.props.fullName}</h2>
             <li>{this.props.address}</li>
+            <li>{this.props.email}</li>
+            <li>{this.props.phone}</li> */}
             <span></span>
             <form onClick = {this.onEditItem}>
               <button type = 'submit'>{editIcon}</button>
             </form>
-          </ul>
+          {/* </ul> */}
         </div>
         : <div>
           <GeneralForm/>

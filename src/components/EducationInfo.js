@@ -3,6 +3,7 @@ import EmploymentForm from './EmploymentForm';
 import EducationForm from './EducationForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import CurriculumVitae from './CurriculumVitae';
 
 class EducationInfo extends Component {
 
@@ -29,15 +30,20 @@ class EducationInfo extends Component {
       {(this.state.showEducationInfo === true)
       ?  <div>
         <EmploymentForm/>
-        <ul>
+        <CurriculumVitae
+          school = {this.props.school}
+          degree = {this.props.degree}
+          gradYear = {this.props.gradYear}
+          />
+        {/* <ul>
           <li>{this.props.school}</li>
           <li>{this.props.degree}</li>
-          <li>{this.props.gradYear}</li>
+          <li>{this.props.gradYear}</li> */}
           <span></span>
           <form onClick = {this.onEditItem}>
             <button type = 'submit'>{editIcon}</button>
           </form>
-        </ul>
+        {/* </ul> */}
       </div>
       : <div>
         <EducationForm/>
