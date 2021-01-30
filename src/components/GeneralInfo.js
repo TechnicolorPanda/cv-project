@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import EducationForm from './EducationForm';
 import GeneralForm from './GeneralForm';
-import CurriculumVitae from './CurriculumVitae';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import '../styles/GeneralInfo.css';
@@ -13,6 +11,10 @@ class GeneralInfo extends Component {
 
     this.state = {
       showGeneralInfo: true,
+      fullName: this.props.fullName,
+      email: this.props.email,
+      phone: this.props.phone,
+      address: this.props.address,
     }
     this.onEditItem = this.onEditItem.bind(this) 
   }
@@ -30,23 +32,23 @@ class GeneralInfo extends Component {
       <div>
       { (this.state.showGeneralInfo === true)
         ? <div>
-          <EducationForm/>
-          {/* <ul> */}
-            <CurriculumVitae
-                        fullName = {this.state.fullName} 
-                        email = {this.props.email}
-                        phone = {this.props.phone}
-                        address = {this.props.address}
-                        showGeneralInfo = {this.props.showGeneralInfo}/>
-            {/* <h2>{this.props.fullName}</h2>
+          <ul>
+            <h2>{this.props.fullName}</h2>
             <li>{this.props.address}</li>
             <li>{this.props.email}</li>
-            <li>{this.props.phone}</li> */}
+            <li>{this.props.phone}</li>
+            <li>{this.props.school}</li>
+            <li>{this.props.degree}</li>
+            <li>{this.props.gradYear}</li>
+            <li>{this.props.company}</li>
+            <li>{this.props.positionTitle}</li>
+            <li>{this.props.responsibilities}</li>
+            <li>{this.props.dates}</li>
             <span></span>
             <form onClick = {this.onEditItem}>
               <button type = 'submit'>{editIcon}</button>
             </form>
-          {/* </ul> */}
+          </ul>
         </div>
         : <div>
           <GeneralForm/>

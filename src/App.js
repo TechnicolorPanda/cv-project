@@ -4,17 +4,13 @@ import './styles/App.css';
 
 class App extends Component {
 
-  // constructor(props) {
-  //   super(props)
+  constructor(props) {
+    super(props)
 
-  //   this.state = {
-  //     fullName: '',
-  //     email: '',
-  //     phone: '',
-  //     address: '',
-  //     showGeneralInfo: false,
-  //   }
-  // }
+    this.state = {
+      showGeneralInfo: false,
+    }
+  }
 
   render() {
     return (
@@ -22,11 +18,7 @@ class App extends Component {
         <h1>Create Your CV</h1>  
         <div>
           <GeneralForm
-            // fullName = {this.state.fullName} 
-            // email = {this.state.email}
-            // phone = {this.state.phone}
-            // address = {this.state.address}
-            // showGeneralInfo = {this.state.showGeneralInfo}
+            showGeneralInfo = {this.state.showGeneralInfo}
           />
         </div>
       </div>
