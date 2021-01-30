@@ -1,4 +1,3 @@
-import { faBoxTissue } from '@fortawesome/free-solid-svg-icons';
 import React, { Component } from 'react';
 import GeneralInfo from './GeneralInfo';
 
@@ -7,6 +6,7 @@ class GeneralForm extends Component {
     super(props)
 
     let showGeneralInfo = this.props.showGeneralInfo;
+    this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
     console.log(showGeneralInfo);
 
     if(showGeneralInfo === false) {
@@ -27,7 +27,6 @@ class GeneralForm extends Component {
       }
     } else {
       this.state = {
-        fullName: this.state.fullName,
         showGeneralInfo: true,
       }
     }
@@ -46,14 +45,26 @@ class GeneralForm extends Component {
 
   onSubmitItems = (event) => {
     event.preventDefault();
-    this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));  
+    this.setState({
+      showGeneralInfo: true,
+    })
+  };
+
+
+  onEditItem = (event) => {
+    event.preventDefault();
+    this.setState({
+      showGeneralInfo: false,
+    })
   };
 
   render() {
     return (
       <div>
-        { (this.state.showGeneralInfo === false)
-        ? <form id = 'generalInput' onSubmit = {this.onSubmitItems}>
+
+         <form 
+         onSubmit = {this.onSubmitItems} 
+         style = {{display: this.state.showGeneralInfo ? 'none': 'block'}}>
 
           <label htmlFor = 'nameInput'>Name </label>
           <input 
@@ -161,21 +172,29 @@ class GeneralForm extends Component {
 
         </form>
 
-        : <GeneralInfo
-          fullName = {this.state.fullName} 
-          email = {this.state.email}
-          phone = {this.state.phone}
-          address = {this.state.address}
-          school = {this.state.school} 
-          degree = {this.state.degree}
-          gradYear = {this.state.gradYear}
-          company = {this.state.company} 
-          positionTitle = {this.state.positionTitle}
-          responsibilities = {this.state.responsibilities}
-          dates = {this.state.dates}
-          showGeneralInfo = {this.state.showGeneralInfo}
-        />
-    }
+        <form 
+            onSubmit = {this.onEditItems} 
+            style = {{display: this.state.showGeneralInfo ? 'block': 'none'}}
+          >
+            <GeneralInfo
+              fullName = {this.state.fullName} 
+              email = {this.state.email}
+              phone = {this.state.phone}
+              address = {this.state.address}
+              school = {this.state.school} 
+              degree = {this.state.degree}
+              gradYear = {this.state.gradYear}
+              company = {this.state.company} 
+              positionTitle = {this.state.positionTitle}
+              responsibilities = {this.state.responsibilities}
+              dates = {this.state.dates}
+              showGeneralInfo = {this.state.showGeneralInfo}
+            />
+              <button 
+              type = 'submit'
+              value = 'Submit'
+              >Edit</button>
+        </form>
       </div>
     );
   };
