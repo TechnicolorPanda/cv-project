@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import GeneralInfo from './GeneralInfo';
+import '../styles/GeneralForm.css';
 
 class GeneralForm extends Component {
   constructor(props) {
     super(props)
 
-    let showGeneralInfo = this.props.showGeneralInfo;
     this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
-    console.log(showGeneralInfo);
 
-    if(showGeneralInfo === false) {
-    
-      this.state = {
+    this.state = {
         fullName: '',
         email: '',
         phone: '',
@@ -25,11 +22,6 @@ class GeneralForm extends Component {
         dates: '', 
         showGeneralInfo: false,
       }
-    } else {
-      this.state = {
-        showGeneralInfo: true,
-      }
-    }
 
     this.handleChange = this.handleChange.bind(this) 
     this.onSubmitItems = this.onSubmitItems.bind(this) 
@@ -50,11 +42,11 @@ class GeneralForm extends Component {
     })
   };
 
-
   onEditItem = (event) => {
     event.preventDefault();
     this.setState({
       showGeneralInfo: false,
+      fullName: this.state.fullName.value,
     })
   };
 
@@ -189,11 +181,8 @@ class GeneralForm extends Component {
               responsibilities = {this.state.responsibilities}
               dates = {this.state.dates}
               showGeneralInfo = {this.state.showGeneralInfo}
+              editEvent = {this.onEditItem.bind(this)}
             />
-              <button 
-              type = 'submit'
-              value = 'Submit'
-              >Edit</button>
         </form>
       </div>
     );
