@@ -1,39 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import GeneralInfo from './GeneralInfo';
 import '../styles/GeneralForm.css';
 
-class GeneralForm extends Component {
-  constructor(props) {
-    super(props)
+const GeneralForm = () => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');  
+  const [school, setSchool] = useState('');  
+  const [degree, setDegree] = useState('');  
+  const [gradYear, setGradYear] = useState('');  
+  const [company, setCompany] = useState('');
+  const [positionTitle, setPositionTitle] = useState('');  
+  const [responsibilities, setResponsiblities] = useState('');
+  const [dates, setDates] = useState('');  
+  const [showGeneralInfo, setGeneralInfo] = useState(false);
+  this.handleChange = this.handleChange.bind(this) 
+  this.onSubmitItems = this.onSubmitItems.bind(this) 
 
-    this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
+  this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
+}
 
-    this.state = {
-        fullName: '',
-        email: '',
-        phone: '',
-        address: '',
-        school: '',
-        degree: '',
-        gradYear: '',
-        company: '',
-        positionTitle: '',
-        responsibilities: '',
-        dates: '', 
-        showGeneralInfo: false,
-      }
-
-    this.handleChange = this.handleChange.bind(this) 
-    this.onSubmitItems = this.onSubmitItems.bind(this) 
-  }
-
-  handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      [name]:value
-    });
-  }
+useEffect((event) => {
+  const name = event.target.name;
+  const value = event.target.value;
+  this.setState({
+    [name]:value
+  });
+})       
 
   onSubmitItems = (event) => {
     event.preventDefault();
