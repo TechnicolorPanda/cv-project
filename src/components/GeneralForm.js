@@ -14,37 +14,59 @@ const GeneralForm = () => {
   const [positionTitle, setPositionTitle] = useState('');  
   const [responsibilities, setResponsiblities] = useState('');
   const [dates, setDates] = useState('');  
-  const [showGeneralInfo, setGeneralInfo] = useState(false);
-  this.handleChange = this.handleChange.bind(this) 
-  this.onSubmitItems = this.onSubmitItems.bind(this) 
+  const [showGeneralInfo, setShowGeneralInfo] = useState(false);
 
-  this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
-}
+  // this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
 
-useEffect((event) => {
-  const name = event.target.name;
-  const value = event.target.value;
-  this.setState({
-    [name]:value
-  });
-})       
 
-  onSubmitItems = (event) => {
-    event.preventDefault();
-    this.setState({
-      showGeneralInfo: true,
-    })
+ 
+  // handleChange = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   this.setState({
+  //     [name]:value
+  //   })
+  // };
+  
+  useEffect(() => {
+    const onSubmitItems = () => {
+    setShowGeneralInfo = true; };
+
+    document.addEventListener('click', onSubmitItems);
+
+    return () => {
+      document.removeEventListener('click', onSubmitItems);
+    }
+  }, [showGeneralInfo]);
+
+  // onSubmitItems = (event) => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     showGeneralInfo: true,
+  //   })
+  // };
+
+  useEffect(() => {
+    const onEditItems = () => {
+    setShowGeneralInfo = false;
+    setFullName = fullName.value;
   };
 
-  onEditItem = (event) => {
-    event.preventDefault();
-    this.setState({
-      showGeneralInfo: false,
-      fullName: this.state.fullName.value,
-    })
-  };
+    document.addEventListener('click', onEditItems);
 
-  render() {
+    return () => {
+      document.removeEventListener('click', onEditItems);
+    }
+  }, [showGeneralInfo, fullName]);
+
+  // onEditItem = (event) => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     showGeneralInfo: false,
+  //     fullName: this.state.fullName.value,
+  //   })
+  // };
+
     return (
       <div>
 
@@ -180,7 +202,6 @@ useEffect((event) => {
         </form>
       </div>
     );
-  };
 }
 
 export default GeneralForm;
