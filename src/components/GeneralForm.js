@@ -1,68 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import GeneralInfo from './GeneralInfo';
 import '../styles/GeneralForm.css';
 
 const GeneralForm = () => {
   const [fullName, setFullName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [phone, setPhone] = useState('');
-  // const [address, setAddress] = useState('');  
-  // const [school, setSchool] = useState('');  
-  // const [degree, setDegree] = useState('');  
-  // const [gradYear, setGradYear] = useState('');  
-  // const [company, setCompany] = useState('');
-  // const [positionTitle, setPositionTitle] = useState('');  
-  // const [responsibilities, setResponsiblities] = useState('');
-  // const [dates, setDates] = useState('');  
-  let [showGeneralInfo, setShowGeneralInfo] = useState(false);
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');  
+  const [school, setSchool] = useState('');  
+  const [degree, setDegree] = useState('');  
+  const [gradYear, setGradYear] = useState('');  
+  const [company, setCompany] = useState('');
+  const [positionTitle, setPositionTitle] = useState('');  
+  const [responsibilities, setResponsiblities] = useState('');
+  const [dates, setDates] = useState('');  
+  const [showGeneralInfo, setShowGeneralInfo] = useState(false);
 
-  // this.setState(state => ({ showGeneralInfo: !state.showGeneralInfo }));
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setShowGeneralInfo(true);
+  }
 
-  // function handleChange(e) {
-  //   setFullName = (e.target.value);
-  // }
-
- 
-  // handleChange = (event) => {
-  //   const name = event.target.name;
-  //   const value = event.target.value;
-  //   this.setState({
-  //     [name]:value
-  //   })
-  // };
-  
-const handleSubmit = (e) => {
-  e.preventDefault();
-  return setShowGeneralInfo = true;
-}
-
-  // onSubmitItems = (event) => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     showGeneralInfo: true,
-  //   })
-  // };
-
-  // useEffect(() => {
-  //   const onEditItems = () => {
-  //   setShowGeneralInfo = false;
-  //   setFullName = fullName.value;
-  // };
-
-  //   document.addEventListener('click', onEditItems);
-
-  //   return () => {
-  //     document.removeEventListener('click', onEditItems);
-  //   }
-  // }, [showGeneralInfo, fullName]);
-
-  // onEditItem = (event) => {
-  //   event.preventDefault();
-  //   this.setState({
-  //     showGeneralInfo: false,
-  //     fullName: this.state.fullName.value,
-  //   })
-  // };
+  const onEditItem = (event) => {
+    console.log('edit');
+    event.preventDefault();
+    setFullName(fullName.value);
+    console.log(fullName);
+    setEmail(email.value);
+    setPhone(phone.value);
+    setAddress(address.value);
+    setSchool(school.value);
+    setDegree(degree.value);
+    setGradYear(gradYear.value);
+    setCompany(company.value);
+    setPositionTitle(positionTitle.value);
+    setResponsiblities(responsibilities.value);
+    setDates(dates.value);
+    setShowGeneralInfo(false);
+  }
 
     return (
       <div>
@@ -80,123 +55,117 @@ const handleSubmit = (e) => {
             id = 'nameInput' />
           <br></br>
 
-          <button onClick = {() => setFullName(showGeneralInfo = true)}>Submit</button>
-
-          {/* <label htmlFor = 'emailInput'>Email </label>
+          <label htmlFor = 'emailInput'>Email </label>
             <input 
-            onChange = {this.handleChange}
-            value = {this.state.email}
+            onChange = {e => setEmail(e.target.value)}
+            value = {email}
             name = 'email'
             type = 'text' 
             id = 'emailInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'phoneInput'>Phone Number </label>
+          <label htmlFor = 'phoneInput'>Phone Number </label>
           <input 
-            onChange = {this.handleChange}
-            value = {this.state.phone}
+            onChange = {e => setPhone(e.target.value)}
+            value = {phone}
             name = 'phone'
             type = 'number' 
             id = 'phoneInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'addressInput'>Address </label>
+          <label htmlFor = 'addressInput'>Address </label>
           <input 
-            onChange = {this.handleChange}
-            value = {this.state.address}
+            onChange = {e => setAddress(e.target.value)}
+            value = {address}
             name = 'address'
             type = 'text' 
             id = 'addressInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'schoolInput'>School </label>
+          <label htmlFor = 'schoolInput'>School </label>
           <input 
-            onChange = {this.handleChange}
+            onChange = {e => setSchool(e.target.value)}
             name = 'school'
-            value = {this.state.school}
+            value = {school}
             type = 'text' 
             id = 'schoolInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'degreeInput'>Degree </label>
+          <label htmlFor = 'degreeInput'>Degree </label>
             <input 
-            onChange = {this.handleChange}
-            value = {this.state.degree}
+            onChange = {e => setDegree(e.target.value)}
+            value = {degree}
             name = 'degree'
             type = 'text' 
             id = 'degreeInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'gradYearInput'>Graduation Year </label>
+          <label htmlFor = 'gradYearInput'>Graduation Year </label>
           <input 
-            onChange = {this.handleChange}
-            value = {this.state.gradYear}
+            onChange = {e => setGradYear(e.target.value)}
+            value = {gradYear}
             name = 'gradYear'
             type = 'number' 
             id = 'gradYearInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'companyInput'>Company </label>
+          <label htmlFor = 'companyInput'>Company </label>
           <input 
-            onChange = {this.handleChange}
+            onChange = {e => setCompany(e.target.value)}
             name = 'company'
-            value = {this.state.company}
+            value = {company}
             type = 'text' 
             id = 'companyInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'positionInput'>Position Title </label>
+          <label htmlFor = 'positionInput'>Position Title </label>
             <input 
-            onChange = {this.handleChange}
-            value = {this.state.positionTitle}
+            onChange = {e => setPositionTitle(e.target.value)}
+            value = {positionTitle}
             name = 'positionTitle'
             type = 'text' 
             id = 'positionInput' />
-          <br></br> */}
-{/* 
+          <br></br>
+
           <label htmlFor = 'responsibilitiesInput'>Job Responsibilities </label>
           <input 
-            onChange = {this.handleChange}
-            value = {this.state.responsibilities}
+            onChange = {e => setResponsiblities(e.target.value)}
+            value = {responsibilities}
             name = 'responsibilities'
             type = 'text' 
             id = 'responsibilitiesInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <label htmlFor = 'datesInput'>Dates of Employment </label>
+          <label htmlFor = 'datesInput'>Dates of Employment </label>
           <input 
-            onChange = {this.handleChange}
-            value = {this.state.dates}
+            onChange = {e => setDates(e.target.value)}
+            value = {dates}
             name = 'dates'
             type = 'text' 
             id = 'datesInput' />
-          <br></br> */}
+          <br></br>
 
-          {/* <button 
-            type = 'submit' 
-            value = 'Submit'
-          >Submit</button> */}
+          <button>Submit</button>
 
         </form>
 
         <form 
-            // onSubmit = {this.onEditItems} 
             style = {{display: showGeneralInfo ? 'block': 'none'}}
           >
             <GeneralInfo
               fullName = {fullName} 
-              // email = {this.state.email}
-              // phone = {this.state.phone}
-              // address = {this.state.address}
-              // school = {this.state.school} 
-              // degree = {this.state.degree}
-              // gradYear = {this.state.gradYear}
-              // company = {this.state.company} 
-              // positionTitle = {this.state.positionTitle}
-              // responsibilities = {this.state.responsibilities}
-              // dates = {this.state.dates}
+              email = {email}
+              phone = {phone}
+              address = {address}
+              school = {school} 
+              degree = {degree}
+              gradYear = {gradYear}
+              company = {company} 
+              positionTitle = {positionTitle}
+              responsibilities = {responsibilities}
+              dates = {dates}
               showGeneralInfo = {showGeneralInfo}
-              // editEvent = {onEditItem}
+              editEvent = {onEditItem}
             />
         </form>
       </div>
