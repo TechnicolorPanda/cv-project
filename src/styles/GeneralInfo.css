@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column; 
   font-size: larger;
-  background-color: #82acd6;
+  background-color: antiquewhite;
   font-size: 24px;
 }
 
@@ -39,30 +39,29 @@ ul {
 button {
     float: right;
     margin-right: 10em;
+    margin-top: 4em;
 }
 
 button:hover {
-  color: red;
+  color: rgb(5, 46, 80);
   background-color: #9db8d3;
 }
 
 .general {
   text-align: center;
   position: relative;
+
 }
 
 #phone {
   padding-bottom: .5em;
+  border-bottom: 5px double black;
 }
 
-#phone:after {
-  content:"";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 0em;
-  width: 90%;
-  border-top: 2px solid black;
-  z-index: -1;
+.displayCV {
+  background-color: antiquewhite;
+  padding: 10px;
+  padding-bottom: 1em;
+  border: 1px solid black;
+  border-radius: 5px;
 }

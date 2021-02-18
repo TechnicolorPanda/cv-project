@@ -25,15 +25,14 @@ const GeneralInfo = (props) => {
   
   return (
 
-    <div>
+    <div className = 'displayCV'>
         <ul>
           <h2 className = 'general'>{fullName}</h2>
           <li className = 'general'>{address}</li>
           <li className = 'general'>{email}</li>
           <li className = 'general' id = 'phone'>{phone}</li>
           <h3 className = 'education'>{school}</h3>
-          <li className = 'education'>{degree}</li>
-          <li className = 'education'>{gradYear}</li>
+          <li className = 'education'>{degree} {'•'} {gradYear}</li>
           <h3 className = 'employment'>{company}</h3>
           <li className = 'employment'>{positionTitle}</li>
           <li className = 'employment'>{responsibilities}</li>
